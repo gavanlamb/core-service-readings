@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="LuGa.Core.Models" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
