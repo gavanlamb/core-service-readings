@@ -3,9 +3,16 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <LangVersion>7.1</LangVersion>
+	<UserSecretsId>luga</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="LuGa.Core.Models" Version="1.0.0-CI-20180226-122043" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <PackageReference Include="MQTTnet" Version="2.7.0" />
     <PackageReference Include="Topshelf" Version="4.1.0.117-develop" />
   </ItemGroup>

@@ -13,7 +13,7 @@ namespace LuGa.Core.Services.Readings
     {
         private readonly IManagedMqttClient _client;
 
-        public LuGaMqtt()
+        public LuGaMqtt(LuGaMqttConfig config)
         {
 
             var factory = new MqttFactory();
@@ -21,9 +21,9 @@ namespace LuGa.Core.Services.Readings
             var options = new ManagedMqttClientOptionsBuilder()
                 .WithAutoReconnectDelay(TimeSpan.FromSeconds(5))
                 .WithClientOptions(new MqttClientOptionsBuilder()
-                    .WithClientId("reader")
-                    .WithTcpServer("mqtt.luga.online", 1883)
-                    .WithCredentials("reader", "xxx")
+                    .WithClientId(config.ClientId)
+                    .WithTcpServer(config.Host, config.Port)
+                    .WithCredentials(config.Username, config.Password)
                     .Build())
                 .Build();
 
@@ -76,5 +76,14 @@ namespace LuGa.Core.Services.Readings
         {
             await _client.StartAsync(options);
         }
+    }
+    
+    public class LuGaMqttConfig
+    {
+        public string ClientId;
+        public string Host;
+        public int Port;
+        public string Username;
+        public string Password;
     }
 }
