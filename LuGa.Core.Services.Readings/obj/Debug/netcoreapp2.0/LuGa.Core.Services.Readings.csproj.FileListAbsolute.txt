@@ -9,3 +9,14 @@ C:\Workspace\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\n
 C:\Workspace\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.AssemblyInfo.cs
 C:\Workspace\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.dll
 C:\Workspace\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.pdb
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\bin\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.deps.json
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\bin\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.runtimeconfig.json
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\bin\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.runtimeconfig.dev.json
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\bin\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.dll
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\bin\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.pdb
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.csprojResolveAssemblyReference.cache
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.csproj.CoreCompileInputs.cache
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.AssemblyInfoInputs.cache
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.AssemblyInfo.cs
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.dll
+E:\Dev\LuGa.Core.Services.Readings\LuGa.Core.Services.Readings\obj\Debug\netcoreapp2.0\LuGa.Core.Services.Readings.pdb
