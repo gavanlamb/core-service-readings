@@ -2,6 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using LuGa.Core.Device.Models;
+using LuGa.Core.Repository;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.ManagedClient;
@@ -12,9 +13,12 @@ namespace LuGa.Core.Services.Readings
     public class LuGaMqtt : ServiceControl
     {
         private readonly IManagedMqttClient _client;
+        private readonly IRepository<Reading> readingRepository;
 
-        public LuGaMqtt(LuGaMqttConfig config)
+        public LuGaMqtt(LuGaMqttConfig config,
+            IRepository<Reading> readingRepository)
         {
+            this.readingRepository = readingRepository;
 
             var factory = new MqttFactory();
 
@@ -43,8 +47,7 @@ namespace LuGa.Core.Services.Readings
                 reading.Value = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
                 reading.TimeStamp = DateTime.UtcNow;
 
-                Console.WriteLine();
-
+                readingRepository.Add(reading);
             };
 
             _client.Connected += async (s, e) =>

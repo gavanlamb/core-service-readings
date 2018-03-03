@@ -12,6 +12,8 @@ using MQTTnet.ManagedClient;
 
 namespace LuGa.Core.Services.Readings
 {
+    using LuGa.Core.Device.Models;
+    using LuGa.Core.Repository;
     using System;
     using System.Threading;
     using System.Threading.Tasks;
@@ -59,9 +61,11 @@ namespace LuGa.Core.Services.Readings
                     Host = cfg["mqtt:host"],
                     Port = Convert.ToInt32(cfg["mqtt:port"])
                 };
-                
-                x.Service(y => new LuGaMqtt(mqttConfig));
-                
+
+                var readingRepository = new ReadingsRepository(cfg["connectionString:test"]);
+
+                x.Service(y => new LuGaMqtt(mqttConfig, readingRepository));
+
                 x.SetServiceName("luga-reader");
                 x.SetDisplayName("luga-reader");
             });

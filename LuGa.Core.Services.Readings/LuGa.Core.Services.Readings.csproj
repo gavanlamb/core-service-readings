@@ -3,10 +3,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <LangVersion>7.1</LangVersion>
-	<UserSecretsId>luga</UserSecretsId>
+    <UserSecretsId>luga</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LuGa.Core.Models" Version="1.0.0-CI-20180226-122043" />
+    <PackageReference Include="LuGa.Core.Models" Version="1.0.1" />
+    <PackageReference Include="LuGa.Core.Repository" Version="1.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.0" />
