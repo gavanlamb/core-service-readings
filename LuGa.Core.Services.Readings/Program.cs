@@ -15,6 +15,7 @@ namespace LuGa.Core.Services.Readings
     using LuGa.Core.Device.Models;
     using LuGa.Core.Repository;
     using System;
+    using System.Diagnostics;
     using System.Threading;
     using System.Threading.Tasks;
     using Topshelf;
@@ -26,12 +27,12 @@ namespace LuGa.Core.Services.Readings
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            string environment = Environment.GetEnvironmentVariable(Constants.Environment);
 
             if (String.IsNullOrWhiteSpace(environment))
-                throw new ArgumentNullException("Environment not found in ASPNETCORE_ENVIRONMENT");
+                throw new ArgumentNullException("Environment not found in:" + Constants.Environment);
 
-            Console.WriteLine("Environment: {0}", environment);
+            Debug.WriteLine("Environment: {0}", environment);
             
             // all passwords should be stored in 
             // %APPDATA%\microsoft\UserSecrets\luga\secrets.json
@@ -54,20 +55,19 @@ namespace LuGa.Core.Services.Readings
             return (int)HostFactory.Run(x =>
             {
                 var mqttConfig = new LuGaMqttConfig
-                {
-                    Password = cfg["mqtt:password"],
-                    Username = cfg["mqtt:username"],
-                    ClientId = cfg["mqtt:clientid"],
-                    Host = cfg["mqtt:host"],
-                    Port = Convert.ToInt32(cfg["mqtt:port"])
-                };
+                (
+                    cfg[Constants.Username],
+                    cfg[Constants.Password],
+                    cfg[Constants.ClientID],
+                    cfg[Constants.Host],
+                    Convert.ToInt32(cfg[Constants.Port]));
 
-                var readingRepository = new ReadingsRepository(cfg["connectionString:test"]);
+                var readingRepository = new ReadingsRepository(cfg[Constants.ConnectionString]);
 
                 x.Service(y => new LuGaMqtt(mqttConfig, readingRepository));
 
-                x.SetServiceName("luga-reader");
-                x.SetDisplayName("luga-reader");
+                x.SetServiceName(Constants.ServiceName);
+                x.SetDisplayName(Constants.ServiceName);
             });
         }
     }
