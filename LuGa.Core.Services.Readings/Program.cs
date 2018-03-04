@@ -51,7 +51,6 @@ namespace LuGa.Core.Services.Readings
    
             var cfg = builder.Build();
             
-            
             return (int)HostFactory.Run(x =>
             {
                 var mqttConfig = new LuGaMqttConfig
