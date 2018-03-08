@@ -7,7 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="LuGa.Core.Models" Version="1.0.1" />
-    <PackageReference Include="LuGa.Core.Repository" Version="1.0.4" />
+    <PackageReference Include="LuGa.Core.Repository" Version="1.0.10" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.0" />
@@ -16,5 +16,10 @@
     <PackageReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <PackageReference Include="MQTTnet" Version="2.7.0" />
     <PackageReference Include="Topshelf" Version="4.1.0.117-develop" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

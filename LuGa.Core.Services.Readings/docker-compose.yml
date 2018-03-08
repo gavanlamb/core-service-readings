@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  reader:
+    build:
+      context: .
+      args:
+        LUGA_NUGET_PAT: "s6nqm4cz3yphqpgzc4xnhfg2mlcdu3qncxqyykang33vx3us6koa"
+    environment:
+      mqtt__password: a219e4a6
+      mqtt__username: reader
+      mqtt__port: 1883
+      mqtt__host: mqtt.luga.online
+      mqtt__clientid: reader
+      connectionString: "server=mysql;persistsecurityinfo=True;user id=root;password=example;database=luga"
+    depends_on:
+      - mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports: 
+      - 8080:80
+    links:
+      - mysql:mariadb
+    environment: 
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: example
+      PMA_HOST: mysql
+    depends_on:
+      - mysql
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: luga
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/

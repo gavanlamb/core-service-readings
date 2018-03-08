@@ -37,17 +37,16 @@ namespace LuGa.Core.Services.Readings
 
             _client.ApplicationMessageReceived += (s, e) =>
             {
-                if (e.ApplicationMessage.Topic.IndexOf(Constants.MessageTopic1, StringComparison.Ordinal) <= -1 ||
-                    e.ApplicationMessage.Topic.IndexOf(Constants.MessageTopic2, StringComparison.Ordinal) != -1) return;
+                if (e.ApplicationMessage.Topic.IndexOf("/value", StringComparison.Ordinal) <= -1 ||
+                    e.ApplicationMessage.Topic.IndexOf("$", StringComparison.Ordinal) != -1) return;
+                
+                var reading = new Reading();
+                var pulled = e.ApplicationMessage.Topic.Split("/");
 
-                var pulled = e.ApplicationMessage.Topic.Split(Constants.SplitCharacter);
-
-                var reading = new Reading() {
-                    DeviceId = pulled[1],
-                    ReadingType = pulled[2],
-                    Value = Encoding.UTF8.GetString(e.ApplicationMessage.Payload),
-                    TimeStamp = DateTime.UtcNow
-                };
+                reading.DeviceId = pulled[1];
+                reading.ReadingType = pulled[2];
+                reading.Value = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
+                reading.TimeStamp = DateTime.UtcNow;
 
                 readingRepository.Add(reading);
             };
