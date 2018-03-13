@@ -3,17 +3,17 @@
     public class LuGaMqttConfig
     {
         public LuGaMqttConfig(
-            string Username,
-            string Password,
-            string ClientId,
-            string Host,
-            int Port)
+            string username,
+            string password,
+            string clientId,
+            string host,
+            int port)
         {
-            this.Username = Username;
-            this.Password = Password;
-            this.ClientId = ClientId;
-            this.Host = Host;
-            this.Port = Port;
+            Username = username;
+            Password = password;
+            ClientId = clientId;
+            Host = host;
+            Port = port;
         }
 
         public string ClientId { get; }

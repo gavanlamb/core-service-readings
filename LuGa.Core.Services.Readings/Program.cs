@@ -32,7 +32,7 @@ namespace LuGa.Core.Services.Readings
             if (String.IsNullOrWhiteSpace(environment))
                 throw new ArgumentNullException("Environment not found in:" + Constants.Environment);
 
-            Debug.WriteLine("Environment: {0}", environment);
+            Console.WriteLine("Environment: {0}", environment);
             
             // all passwords should be stored in 
             // %APPDATA%\microsoft\UserSecrets\luga\secrets.json
@@ -50,6 +50,8 @@ namespace LuGa.Core.Services.Readings
             }
    
             var cfg = builder.Build();
+
+            Console.WriteLine($"Connection string: {cfg[Constants.ConnectionString]}");
             
             return (int)HostFactory.Run(x =>
             {
@@ -57,7 +59,7 @@ namespace LuGa.Core.Services.Readings
                 (
                     cfg[Constants.Username],
                     cfg[Constants.Password],
-                    cfg[Constants.ClientID],
+                    cfg[Constants.ClientId],
                     cfg[Constants.Host],
                     Convert.ToInt32(cfg[Constants.Port]));
 
@@ -70,5 +72,4 @@ namespace LuGa.Core.Services.Readings
             });
         }
     }
-
 }
